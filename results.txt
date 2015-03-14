@@ -1,0 +1,60 @@
+mysql> SELECT nick, count(nick) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(nick) DESC;
++---------------------+-------------+
+| nick                | count(nick) |
++---------------------+-------------+
+| freeman             |        4659 |
+| BearNecessities     |        4526 |
+| TelosNet3           |        3901 |
+| MoscoVV             |        3022 |
+| felix               |        2765 |
+| default             |        2452 |
+| CoinTossTail        |        1947 |
+| toxiroxiDE          |        1768 |
+| boxr                |        1666 |
+| gorz                |        1496 |
+| ShadowNet           |        1372 |
+| AlliumNobilis       |        1283 |
+| PrivacyRepublic0011 |        1185 |
+| s5zyczupl           |         914 |
+| PubliusAnonymous    |         880 |
+| MistProperX         |         772 |
+| HoffmannHosting     |         702 |
+| Unnamed             |         511 |
+| CorvusCorax         |         443 |
+| intelminer          |         325 |
+| gansta93            |         263 |
+| mogurakun           |         218 |
+| battleguardDOTnet   |         212 |
+| pseudotsuga         |         161 |
+| hellogefi2          |         148 |
+| fortas              |         133 |
+| testnode            |         100 |
+| EvilMoe             |          90 |
+| TaurNuFuin          |          82 |
+| Bezoar              |          67 |
+| 00AntiSpy00         |          63 |
+| TorsHammer          |          48 |
+| MeaningOfLife       |          28 |
+| BrigitteDaKnObNET   |          25 |
+| gansta93ns          |          24 |
+| devaley             |          23 |
+| torrichandel        |          22 |
+| deimos1138          |          22 |
+| ledeuxiemepointbas  |          18 |
+| waldfrosch          |           4 |
++---------------------+-------------+
+40 rows in set (0.03 sec)
+
+mysql> SELECT identity, count(identity) FROM silkroad6ownowfk WHERE nick = 'freeman';+------------------------------------------+-----------------+
+| identity                                 | count(identity) |
++------------------------------------------+-----------------+
+| f3b6c22c592f5b6998939db252938412571a3319 |            4659 |
++------------------------------------------+-----------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT identity, count(identity) FROM silkroad6ownowfk WHERE nick = 'BearNecessities';
++------------------------------------------+-----------------+
+| identity                                 | count(identity) |
++------------------------------------------+-----------------+
+| 4493b473a59e4d5c14f32a95f9831d2a2550dba2 |            4526 |
++------------------------------------------+-----------------+
