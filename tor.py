@@ -53,67 +53,111 @@ cursor.execute("CREATE TABLE IF NOT EXISTS " + onion_Add +
 	+ "pubtime  CHAR(40) NOT NULL)"
 	)
 
-h = 18 #Hour
-d = 21 #Day
-m = 03 #Month
-y = 2014 #Year
 
-while True:
+def calculate_and_write_hsdir(h,d,m,y):
+	while True:
+		if h < 24:
 
-	consensus_file_name = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-00-00-consensus"
-	print consensus_file_name 
- 	consensus_name = "2014-03-21-18-00-00-consensus"
+			if d < 10:
+				d = "0"+str(d)
+			if h < 10:
+				h = "0"+str(h)
+			if m < 10:
+				m = "0"+str(m)
+			
+			consensus_file_name = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-00-00-consensus"
+			print consensus_file_name 
 
-	consensus.fetchConsensus(consensus_name) #Retrieves the consensus 
-
-
-	print "Retriving hidden service descriptor" #Keeping the user informed
-	#"kpvz7ki2v5agwt35"#Hidden Wiki   #"3g2upl4pq6kufc4m"#duck duck go     #"idnxcnkne4qt76tg" #homepage of the Tor project   #All various hidden service addresses, some dont work as temporarily gone down etc
-
-	responsible_HSDir_list = [] #Setting up variables to take an array list to be used later on
-	descriptor_id_list = [] #Setting up variables to take an array list to be used later on
-
-	for i in range(0, 2):
-	    descriptor_id = get_descriptor_Id(onion_Add, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
-	    descriptor_id_list.append(descriptor_id) # Makes sure all 3 desciptor ids are stored
-	    responsible_HSDir = find_responsible_HSDir(descriptor_id)# Passes the descriptor to the find_responsible_HSDir function in rendFunccs (returns the responsible hidden service directories for the selected hidden service)
-	    responsible_HSDir_list.append(responsible_HSDir) # Saves all responsible HSDir information in a list to use later (3 responsible hidden service directories)
-
-	identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime = extract_HSDir_data(responsible_HSDir_list) # Extracts the data from the reponsible Hidden service directories and assigns these to several variables for use later on
-	# web_addresses = connect_to_web_lookup(ip_addresses, dirport, descriptor_id_list) # Creates the IP address with Port numbers for all the responsible hidden service directories
-
-	# Prepare SQL query to INSERT a record into the database.
-	# sql = "INSERT INTO " + "`" + onion_Add + "`" + "(`nick`)"+ "VALUES" + nick[0]
+			consensus.fetchConsensus(consensus_file_name) #Retrieves the consensus 
 
 
-	c = 0
+			print "Retriving hidden service descriptor" #Keeping the user informed
+			#"kpvz7ki2v5agwt35"#Hidden Wiki   #"3g2upl4pq6kufc4m"#duck duck go     #"idnxcnkne4qt76tg" #homepage of the Tor project   #All various hidden service addresses, some dont work as temporarily gone down etc
 
-	while c < len(nick):
-		format = """','"""
+			responsible_HSDir_list = [] #Setting up variables to take an array list to be used later on
+			descriptor_id_list = [] #Setting up variables to take an array list to be used later on
 
-		# print binascii.hexlify(identity[c])
-	# # #Not sure if i should do this ?
-	# binascii.hexlify(identity[c])
+			for i in range(0, 2):
+			    descriptor_id = get_descriptor_Id(onion_Add, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
+			    descriptor_id_list.append(descriptor_id) # Makes sure all 3 desciptor ids are stored
+			    responsible_HSDir = find_responsible_HSDir(descriptor_id)# Passes the descriptor to the find_responsible_HSDir function in rendFunccs (returns the responsible hidden service directories for the selected hidden service)
+			    responsible_HSDir_list.append(responsible_HSDir) # Saves all responsible HSDir information in a list to use later (3 responsible hidden service directories)
 
-		
-		# print flags[c]
-		flags[c] = str(flags[c]).replace("'", "")
-		identity[c] = str(identity[c]).replace("'", "")
+			identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime = extract_HSDir_data(responsible_HSDir_list) # Extracts the data from the reponsible Hidden service directories and assigns these to several variables for use later on
+			# web_addresses = connect_to_web_lookup(ip_addresses, dirport, descriptor_id_list) # Creates the IP address with Port numbers for all the responsible hidden service directories
 
-		sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime)
-		         VALUES ('""" +consensus_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + binascii.hexlify(identity[c]) + format + digest[c] + format + pubtime[c] + """')"""
-
-		try:
-		   # Execute the SQL command
-		   cursor.execute(sql)
-		   # Commit your changes in the database
-		   db.commit()
-		except:
-		   # Rollback in case there is any error
-		   db.rollback()
-		   print "adding to db error"
-
-		c = c + 1
-		
+			# Prepare SQL query to INSERT a record into the database.
+			# sql = "INSERT INTO " + "`" + onion_Add + "`" + "(`nick`)"+ "VALUES" + nick[0]
 
 
+			c = 0
+
+			while c < len(nick):
+				format = """','"""
+
+				# print binascii.hexlify(identity[c])
+			# # #Not sure if i should do this ?
+			# binascii.hexlify(identity[c])
+
+				
+				# print flags[c]
+				flags[c] = str(flags[c]).replace("'", "")
+				identity[c] = str(identity[c]).replace("'", "")
+
+				sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime)
+				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + binascii.hexlify(identity[c]) + format + digest[c] + format + pubtime[c] + """')"""
+
+				try:
+				   # Execute the SQL command
+				   cursor.execute(sql)
+				   # Commit your changes in the database
+				   db.commit()
+				except:
+				   # Rollback in case there is any error
+				   db.rollback()
+				   print "adding to db error"
+
+				c = c + 1
+				
+			h = int(h) + 1 
+		else:
+			h = 00
+			d = int(d) + 1
+			return d
+				# 	d = d + 1
+
+
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+
+
+h = 00 #Hour
+d = 01 #Day
+m = 02 #Month
+y = 2013 #Year
+
+# calculate_and_write_hsdir(h,d,m,y)
+def run_calculate(h,d,m,y):
+	u = set(04,06, 09, 11)
+	while True:
+	if m in u:
+		calculate_and_write_hsdir(h,d,m,y)
+		if d = 30:
+			calculate_and_write_hsdir(h,d,m,y)
+			m = m + 1
+	elif m == 02:
+		calculate_and_write_hsdir(h,d,m,y)
+		if d = 28:
+			calculate_and_write_hsdir(h,d,m,y)
+			m == 03
+	else:
+		calculate_and_write_hsdir(h,d,m,y)
+		if d = 31:
+			calculate_and_write_hsdir(h,d,m,y)
+			m = m + 1
+
+
+run_calculate(h,d,m,y)
