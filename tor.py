@@ -136,8 +136,8 @@ def calculate_and_write_hsdir(h,d,m,y):
 
 
 h = 00 #Hour
-d = 25 #Day
-m = 02 #Month
+d = 11 #Day
+m = 25 #Month
 y = 2013 #Year
 
 # calculate_and_write_hsdir(h,d,m,y)
@@ -149,6 +149,8 @@ def run_calculate(h,d,m,y):
 	      			calculate_and_write_hsdir(h,d,m,y)
 	       			d = 01
 	       			m = m + 1
+	       			# if y == 2014:
+	       			# 	y = 2014
 	if m == 02:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
