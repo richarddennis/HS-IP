@@ -72,7 +72,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 			consensus.fetchConsensus(consensus_file_name) #Retrieves the consensus 
 
 
-			print "Retriving hidden service descriptor" #Keeping the user informed
+			# print "Retriving hidden service descriptor" #Keeping the user informed
 			#"kpvz7ki2v5agwt35"#Hidden Wiki   #"3g2upl4pq6kufc4m"#duck duck go     #"idnxcnkne4qt76tg" #homepage of the Tor project   #All various hidden service addresses, some dont work as temporarily gone down etc
 
 			responsible_HSDir_list = [] #Setting up variables to take an array list to be used later on
@@ -135,13 +135,9 @@ def calculate_and_write_hsdir(h,d,m,y):
 ###########################################################################################################################################################################################
 
 
-h = 00 #Hour
-d = 11 #Day
-m = 25 #Month
-y = 2013 #Year
-
 # calculate_and_write_hsdir(h,d,m,y)
 def run_calculate(h,d,m,y):
+
 	if m == 01:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
@@ -149,8 +145,6 @@ def run_calculate(h,d,m,y):
 	      			calculate_and_write_hsdir(h,d,m,y)
 	       			d = 01
 	       			m = m + 1
-	       			# if y == 2014:
-	       			# 	y = 2014
 	if m == 02:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
@@ -158,14 +152,13 @@ def run_calculate(h,d,m,y):
 	      			calculate_and_write_hsdir(h,d,m,y)
 	       			d = 01
 	       			m = m + 1
-
    	if m == 03:
    		while True:
-   			print "In MARCH LOOP"
+   			# print "In MARCH LOOP"
 	 		d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
         			calculate_and_write_hsdir(h,d,m,y)
-        			print "March Done"
+        			# print "March Done"
         			d = 01
         			m = m + 1
 	if m == 04:
@@ -235,9 +228,25 @@ def run_calculate(h,d,m,y):
 			d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
 	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 01
-	       			m = 01
-	       			y = y + 1
+	       			# y = y + 1	       			
+	       			# d = 01
+	       			# m = 01
+	       			break
+	       			
+# h = 00 #Hour
+# d = 28 #Day
+# m = 12 #Month
+# y = 2013 #Year
 
+# run_calculate(h,d,m,y)
+
+h = 00 #Hour
+d = 01 #Day
+m = 01 #Month
+y = 2014 #Year
 
 run_calculate(h,d,m,y)
+
+
+# run_calculate(00,01,01,2014)
+# run_calculate(00,01,01,2015)
