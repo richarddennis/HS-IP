@@ -23,6 +23,7 @@ from time import sleep
 import threading
 import errno
 import re
+from datetime import datetime, timedelta
 
 from rendFuncs import *
 
@@ -135,29 +136,106 @@ def calculate_and_write_hsdir(h,d,m,y):
 
 
 h = 00 #Hour
-d = 01 #Day
+d = 25 #Day
 m = 02 #Month
 y = 2013 #Year
 
 # calculate_and_write_hsdir(h,d,m,y)
 def run_calculate(h,d,m,y):
-	u = set(04,06, 09, 11)
-	while True:
-	if m in u:
-		calculate_and_write_hsdir(h,d,m,y)
-		if d = 30:
-			calculate_and_write_hsdir(h,d,m,y)
-			m = m + 1
-	elif m == 02:
-		calculate_and_write_hsdir(h,d,m,y)
-		if d = 28:
-			calculate_and_write_hsdir(h,d,m,y)
-			m == 03
-	else:
-		calculate_and_write_hsdir(h,d,m,y)
-		if d = 31:
-			calculate_and_write_hsdir(h,d,m,y)
-			m = m + 1
+	if m == 01:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+	if m == 02:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 28:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+   	if m == 03:
+   		while True:
+   			print "In MARCH LOOP"
+	 		d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+        			calculate_and_write_hsdir(h,d,m,y)
+        			print "March Done"
+        			d = 01
+        			m = m + 1
+	if m == 04:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 05:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 06:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 07:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 8:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 9:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+	if m == 10:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+	if m == 11:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+
+	if m == 12:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = 01
+	       			y = y + 1
 
 
 run_calculate(h,d,m,y)
