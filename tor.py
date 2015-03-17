@@ -83,11 +83,21 @@ def calculate_and_write_hsdir(h,d,m,y):
 			identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime = extract_HSDir_data(responsible_HSDir_list) # Extracts the data from the reponsible Hidden service directories and assigns these to several variables for use later on
 			# web_addresses = connect_to_web_lookup(ip_addresses, dirport, descriptor_id_list) # Creates the IP address with Port numbers for all the responsible hidden service directories
 
+			# Prepare SQL query to INSERT a record into the database.
+			# sql = "INSERT INTO " + "`" + onion_Add + "`" + "(`nick`)"+ "VALUES" + nick[0]
+
+
 			c = 0
 
 			while c < len(nick):
 				format = """','"""
 
+				# print binascii.hexlify(identity[c])
+			# # #Not sure if i should do this ?
+			# binascii.hexlify(identity[c])
+
+				
+				# print flags[c]
 				flags[c] = str(flags[c]).replace("'", "")
 				identity[c] = str(identity[c]).replace("'", "")
 
@@ -95,9 +105,12 @@ def calculate_and_write_hsdir(h,d,m,y):
 				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + binascii.hexlify(identity[c]) + format + digest[c] + format + pubtime[c] + """')"""
 
 				try:
+				   # Execute the SQL command
 				   cursor.execute(sql)
+				   # Commit your changes in the database
 				   db.commit()
 				except:
+				   # Rollback in case there is any error
 				   db.rollback()
 				   print "adding to db error"
 
@@ -110,8 +123,17 @@ def calculate_and_write_hsdir(h,d,m,y):
 			return d
 				# 	d = d + 1
 
+
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+###########################################################################################################################################################################################
+
+
+# calculate_and_write_hsdir(h,d,m,y)
 def run_calculate(h,d,m,y):
-	if m in [1,3,5,7,8,10,12]:
+	if m == 1:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
@@ -119,7 +141,8 @@ def run_calculate(h,d,m,y):
 	       			d = 1
 	       			m = m + 1
 	       			break
-
+	       			# if y == 2014:
+	       			# 	y = 2014
 	if m == 2:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
@@ -129,8 +152,18 @@ def run_calculate(h,d,m,y):
 	       			m = m + 1
 	       			break
 
+   	if m == 3:
+   		while True:
+   			print "In MARCH LOOP"
+	 		d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+        			calculate_and_write_hsdir(h,d,m,y)
+        			print "March Done"
+        			d = 1
+        			m = m + 1
+        			break
 
-	if m in[4,6,9,11]:
+	if m == 4:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 30:
@@ -138,6 +171,77 @@ def run_calculate(h,d,m,y):
 	       			d = 1
 	       			m = m + 1
 	       			break
+
+	if m == 5:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 1
+	       			m = m + 1
+	       			break
+
+	if m == 6:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 1
+	       			m = m + 1
+	       			break
+
+	if m == 7:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 1
+	       			m = m + 1
+	       			break
+
+	if m == 8:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+	       			break
+
+	if m == 9:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 01
+	       			m = m + 1
+	       			break
+
+	if m == 10:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 1
+	       			m = m + 1
+	       			break
+
+	if m == 11:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 30:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			d = 1
+	       			m = m + 1
+	       			break
+
+	if m == 12:
+		while True:
+			d = calculate_and_write_hsdir(h,d,m,y)
+	   		if d == 31:
+	      			calculate_and_write_hsdir(h,d,m,y)
+	       			break
+
 
 h = 00 #Hour
 d = 07 #Day
