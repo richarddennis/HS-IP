@@ -1,62 +1,48 @@
 mysql> SELECT nick, identity, count(nick) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(nick) DESC;
-+-------------------+------------------------------------------+-------------+
-| nick              | identity                                 | count(nick) |
-+-------------------+------------------------------------------+-------------+
-| Unnamed           | ec7210f31b7bb6f457a076e267eb9d3ca7e3a6   |       12616 |
-| rainbowdash       | ec639edaa5121b47dbdf3d6b01a22e48a8cb6cc7 |        5727 |
-| cinnabar          | ec704e2aee1f6da59c29caae5d03d10e70511d35 |        5680 |
-| azetorn           | 597cdfb51a2b29de2d37d2b0af8953f5874596a0 |        4136 |
-| default           | ece60e7d36ffcbcc71293d148a05b6e12920d30f |        3961 |
-| metwork           | ec6568ace8d5c2aed025b0e3a8db5922969fd967 |        3789 |
-| PPTOR0026         | 59352e0f1b7996c78ccdbff03ea4e6e680af72f3 |        3698 |
-| RouterRedefined   | 596fd611d9042889494292e52d6d2217bab9ea81 |        3518 |
-| HackThisSite      | 594d6b7b1dee6b23476c7378d0d26f2db61251a5 |        3224 |
-| ovhvpstestnode    | ec7a768171bbe87e49abd84b2390deaab2818857 |        3006 |
-| tannhauser        | 594c25af7e03c68d8cadafbfc5f3a6fe41c57481 |        2815 |
-| Jumpgate          | ec552272faa9255628aea74c0e1bb4c592dbcda3 |        2656 |
-| Thor              | 597ee8f95216806c14f6c3f66e9eb6892cd35ad9 |        2615 |
-| bauruine203       | ec8ad09695fcb20ef47a49e61e048090fad41da6 |        2610 |
-| Unnamed111        | 593c476c690a2a0690e8a8750e0a90447f52ad   |        2499 |
-| BatCave           | ec9db455e6949c94b0d7b575fc614d6a9b85cacf |        2470 |
-| smellmyassworld   | 59562a5e156637622df124ed409887487e885b61 |        2403 |
-| SpazturtleRarity  | 5923444359952c1ed8c0a44404cec1bf46d424f7 |        2299 |
-| Jabmist           | 595f549cb7b9fe9e470b00df5e5d145e061851aa |        1829 |
-| LordLoki          | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |        1640 |
-| deskei            | 593b9c57d81f6a4497f8b6b0f6c07f7e794c488d |        1625 |
-| spfTOR5e1         | ecb84bbd1fc44ce4234ca8db4939e4f3238840   |        1534 |
-| jantor1           | ec983d3fd15461e4fdd34a43a2cddf45ad3f7f   |        1394 |
-| Gr0undZ0er        | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |        1212 |
-| TOR88091          | ecb7ec138bc3addb773113a1f14b62e640561abd |        1204 |
-| DFRI3             | ec84e23249f74bffbc82b4e63cda295ccc0292a0 |        1160 |
-| panopticant       | ec786c89c651306282bc95cde44d63ab0b5365cb |         902 |
-| ned               | ec65f1021986e331a47b29851ae328c64a0151f2 |         848 |
-| GroundZer0        | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |         663 |
-| Unknown2048       | 594a7ecefcb66686443902f24279a7d3d7f68b8b |         603 |
-| vladv             | ec4a04344163f4cab6982059a58b9cb773ef14d1 |         495 |
-| Amunet8           | ecefd3ae72bc6d9ef517a7919cbd1683d3326a4e |         442 |
-| thanksThePi       | 592d1ac312e312796647f1dc63d83ff24bfc255b |         430 |
-| PPTOR0028         | 596bfd771edb41dc6b4f579d86bfa0058b594ad5 |         418 |
-| Exituscraft2      | 59966f194a0b73ac55a4c33cc80210dc6c44acc9 |         320 |
-| Radon             | ec5b9a0ed434f0af2bd6cd8a1d17be9bc60ef64c |         292 |
-| GEOf              | 59688a632fd39931fa0032b4fd233682446d058c |         280 |
-| c0rruptedlogic    | ec6e8c22d65c7dfeed0750d62db77cf523d14a94 |         265 |
-| GrayStain         | ec4dca03d62abffbb4c9e05ecd2866c42d11eeb8 |         261 |
-| ThorNode          | 593cc8ce0e087ce110501adba01c2eb8aaa648ef |         251 |
-| doctorpulsedmedia | ec98311f9ec02beaa183651ce8402249cd036d0a |         180 |
-| PPTOR0010         | 59b04a5e654e044ed79e59a4f27bdc1272d1dbdb |         150 |
-| Mikel             | ecc53f0b1ce701a5dde4fcf268ea423e2694cf72 |         133 |
-| bbhr9000          | 594a7ecefcb66686443902f24279a7d3d7f68b8b |         126 |
-| pokopaalboom      | 594e40b7a0a6a042c209be6db899db0ceffd86c8 |         125 |
-| HakaseNyang       | ecf131a45c98db183a4d1b1901c99034ec196f0d |          96 |
-| blowmywhistle2    | 598a6026a47e444bb0d46ce03a0f8244f16c0fc0 |          83 |
-| StarsEnd2         | 59b45fb222be85a123ea2a4e3a85953eea53d635 |          78 |
-| SKKU144           | ec849c13d3add056fd2118449306456cd2ebf1   |          76 |
-| colonyoftomorrow  | 5948e8374d249dcb511e7a60c9e9cb41c8d6b5f4 |          49 |
-| bobolopolis       | ecf67c970935d8c382c405ad36e2153ffee16742 |          47 |
-| modio4            | 5989521a85c94ee101e88b8db2e68321673f9405 |          36 |
-| cyan4             | ecbd817629c5b8674fef9025680322817a9bdd03 |          35 |
-| JimmyTheHand      | ec4a1ac0204312242e7631e4410401d2c77d2c09 |          33 |
-| d0wnbiz           | 5982cb24d07ceab8a67a24ed70f44eac44c97e01 |          25 |
-| hearn             | ecbe8c0b428b5f08203ff4edf7dbc8aa64b28ead |           2 |
-+-------------------+------------------------------------------+-------------+
-56 rows in set (0.07 sec)
++------------------+------------------------------------------+-------------+
+| nick             | identity                                 | count(nick) |
++------------------+------------------------------------------+-------------+
+| Unnamed          | ec7210f31b7bb6f457a076e267eb9d3ca7e3a6   |       14416 |
+| SpazturtleRarity | 5923444359952c1ed8c0a44404cec1bf46d424f7 |        8164 |
+| metwork          | ec6568ace8d5c2aed025b0e3a8db5922969fd967 |        8151 |
+| PPTOR0026        | 59352e0f1b7996c78ccdbff03ea4e6e680af72f3 |        5742 |
+| rainbowdash      | ec639edaa5121b47dbdf3d6b01a22e48a8cb6cc7 |        4105 |
+| default          | ece60e7d36ffcbcc71293d148a05b6e12920d30f |        3631 |
+| HackThisSite     | 594d6b7b1dee6b23476c7378d0d26f2db61251a5 |        2736 |
+| Unnamed111       | 593c476c690a2a0690e8a8750e0a90447f52ad   |        2574 |
+| smellmyassworld  | 59562a5e156637622df124ed409887487e885b61 |        2403 |
+| bauruine203      | ec8ad09695fcb20ef47a49e61e048090fad41da6 |        2185 |
+| Jumpgate         | ec552272faa9255628aea74c0e1bb4c592dbcda3 |        2122 |
+| cinnabar         | ec704e2aee1f6da59c29caae5d03d10e70511d35 |        2044 |
+| BatCave          | ec9db455e6949c94b0d7b575fc614d6a9b85cacf |        1995 |
+| Jabmist          | 595f549cb7b9fe9e470b00df5e5d145e061851aa |        1829 |
+| GrayStain        | ec4dca03d62abffbb4c9e05ecd2866c42d11eeb8 |        1805 |
+| LordLoki         | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |        1699 |
+| spfTOR5e1        | ecb84bbd1fc44ce4234ca8db4939e4f3238840   |        1470 |
+| jantor1          | ec983d3fd15461e4fdd34a43a2cddf45ad3f7f   |        1394 |
+| TOR88091         | ecb7ec138bc3addb773113a1f14b62e640561abd |        1120 |
+| tannhauser       | 594c25af7e03c68d8cadafbfc5f3a6fe41c57481 |         855 |
+| Gr0undZ0er       | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |         791 |
+| ned              | ec65f1021986e331a47b29851ae328c64a0151f2 |         581 |
+| vladv            | ec4a04344163f4cab6982059a58b9cb773ef14d1 |         495 |
+| Amunet8          | ecefd3ae72bc6d9ef517a7919cbd1683d3326a4e |         442 |
+| thanksThePi      | 592d1ac312e312796647f1dc63d83ff24bfc255b |         430 |
+| GroundZer0       | ec4b0576f7acda94bebd37d152dbef0c7d3d03b5 |         421 |
+| c0rruptedlogic   | ec6e8c22d65c7dfeed0750d62db77cf523d14a94 |         418 |
+| Radon            | ec5b9a0ed434f0af2bd6cd8a1d17be9bc60ef64c |         292 |
+| ThorNode         | 593cc8ce0e087ce110501adba01c2eb8aaa648ef |         251 |
+| RouterRedefined  | 596fd611d9042889494292e52d6d2217bab9ea81 |         250 |
+| ovhvpstestnode   | ec7a768171bbe87e49abd84b2390deaab2818857 |         219 |
+| Mikel            | ecc53f0b1ce701a5dde4fcf268ea423e2694cf72 |         133 |
+| DFRI3            | ec84e23249f74bffbc82b4e63cda295ccc0292a0 |         125 |
+| HakaseNyang      | ecf131a45c98db183a4d1b1901c99034ec196f0d |          96 |
+| colonyoftomorrow | 5948e8374d249dcb511e7a60c9e9cb41c8d6b5f4 |          49 |
+| bobolopolis      | ecf67c970935d8c382c405ad36e2153ffee16742 |          47 |
+| SKKU144          | ec849c13d3add056fd2118449306456cd2ebf1   |          38 |
+| JimmyTheHand     | ec4a1ac0204312242e7631e4410401d2c77d2c09 |          33 |
+| ddwrt            | ec7da435dd9bc594e96d42d551faae5634d3747d |          31 |
+| d0wnbiz          | 5982cb24d07ceab8a67a24ed70f44eac44c97e01 |          25 |
+| deskei           | 593b9c57d81f6a4497f8b6b0f6c07f7e794c488d |          17 |
++------------------+------------------------------------------+-------------+
+41 rows in set (0.06 sec)
+
