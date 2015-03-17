@@ -133,7 +133,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 
 # calculate_and_write_hsdir(h,d,m,y)
 def run_calculate(h,d,m,y):
-	if m == 1:
+	if m in [1,3,5,7,8,10,12]:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
@@ -152,18 +152,8 @@ def run_calculate(h,d,m,y):
 	       			m = m + 1
 	       			break
 
-   	if m == 3:
-   		while True:
-   			print "In MARCH LOOP"
-	 		d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-        			calculate_and_write_hsdir(h,d,m,y)
-        			print "March Done"
-        			d = 1
-        			m = m + 1
-        			break
 
-	if m == 4:
+	if m in[4,6,9,11]:
 		while True:
 			d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 30:
@@ -171,77 +161,6 @@ def run_calculate(h,d,m,y):
 	       			d = 1
 	       			m = m + 1
 	       			break
-
-	if m == 5:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 1
-	       			m = m + 1
-	       			break
-
-	if m == 6:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 30:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 1
-	       			m = m + 1
-	       			break
-
-	if m == 7:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 1
-	       			m = m + 1
-	       			break
-
-	if m == 8:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 01
-	       			m = m + 1
-	       			break
-
-	if m == 9:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 30:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 01
-	       			m = m + 1
-	       			break
-
-	if m == 10:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 1
-	       			m = m + 1
-	       			break
-
-	if m == 11:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 30:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			d = 1
-	       			m = m + 1
-	       			break
-
-	if m == 12:
-		while True:
-			d = calculate_and_write_hsdir(h,d,m,y)
-	   		if d == 31:
-	      			calculate_and_write_hsdir(h,d,m,y)
-	       			break
-
 
 h = 00 #Hour
 d = 07 #Day
