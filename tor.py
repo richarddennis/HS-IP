@@ -35,7 +35,7 @@ db=mysql.connector.connect(user='root', password ='edge#540', database='hsip')
 cursor=db.cursor()
 
 #Onion name
-onion_Add = "silkroad6ownowfk" #Hidden service address , can be with or without the .onion at the end
+onion_Add = "agorahooawayyfoe" #Hidden service address , can be with or without the .onion at the end
 
 #Creates a new table for each onion address
 cursor.execute("CREATE TABLE IF NOT EXISTS " + onion_Add + 
@@ -67,6 +67,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 				m = "0"+str(m)
 			
 			con_date_time = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-00-00" 
+			con_date_time_30 = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-30-00" 
 			consensus_file_name = con_date_time  +"-consensus"
 			print con_date_time 
 
@@ -76,7 +77,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 			descriptor_id_list = [] #Setting up variables to take an array list to be used later on
 
 			for i in range(0, 2):
-			    descriptor_id = get_descriptor_Id(onion_Add, con_date_time, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
+			    descriptor_id = get_descriptor_Id(onion_Add, con_date_time_30, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
 			    descriptor_id_list.append(descriptor_id) # Makes sure all 3 desciptor ids are stored
 			    responsible_HSDir = find_responsible_HSDir(descriptor_id)# Passes the descriptor to the find_responsible_HSDir function in rendFunccs (returns the responsible hidden service directories for the selected hidden service)
 			    responsible_HSDir_list.append(responsible_HSDir) # Saves all responsible HSDir information in a list to use later (3 responsible hidden service directories)
@@ -97,7 +98,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 				flags[c] = str(flags[c]).replace("'", "")
 
 				sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, fingerprint, nick, identity, version, flags, digest, pubtime)
-				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + identity + nick[c] + format + version[c] + format + flags[c] + format +  digest[c] + format + pubtime[c] + """')"""
+				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + identity  + format + version[c] + format + flags[c] + format +  digest[c] + format + pubtime[c] + """')"""
 
 				try:
 				   cursor.execute(sql)
@@ -136,8 +137,8 @@ def run_calculate(h,d,m,y):
 	       			m = m + 1
 	       			break
 
-   	if m == 3:
-   		while True:
+   	if m == 3 and y != 2015:
+ 		while True:
 	 		d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
         			calculate_and_write_hsdir(h,d,m,y)
@@ -225,11 +226,11 @@ def run_calculate(h,d,m,y):
 	       			break
 
 
-h = 00 #Hour
-d = 07 #Day
-m = 10 #Month
-y = 2013 #Year
+# h = 00 #Hour
+# d = 07 #Day
+# m = 10 #Month
+# y = 2013 #Year
 
-run_calculate(h,d,m,y)
+# run_calculate(h,d,m,y)
 run_calculate(00,1,1,2014)
 run_calculate(00,1,1,2015)
