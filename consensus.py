@@ -10,10 +10,9 @@ flags = {}
 router = {}
 
 
-def fetchConsensus(i):
+def fetchConsensus(consensus_name):
     global router,flags
-
-    file = open('2014-03-21-18-00-00-consensus', 'r') # Find a better method
+    file = open(str(consensus_name), 'r') # Find a better method
     consensus_txt = file.read()
     # # print consensus_txt
     # sys.exit(0)
@@ -27,7 +26,7 @@ def fetchConsensus(i):
             rfmt = ['nick', 'identity', 'digest', 'pubdate', 'pubtime', 'ip', 'orport', 'dirport']
             data = dict(zip(rfmt, q[1:]))
             idt= data['identity']
-            idt += "=" * (4-len(idt)%4) # pad b64 string
+            idt += "=" * (4-len(idt)%4) # pad b64 string           
             ident = data['identity'] = base64.standard_b64decode(idt)
             data['identityhash'] = binascii.hexlify(ident)
             data['identityb32'] = base64.b32encode(ident).lower()
