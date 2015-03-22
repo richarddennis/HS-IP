@@ -1,146 +1,49 @@
-mysql> SELECT nick, fingerprint, count(nick) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(nick) DESC;
-+---------------------+------------------------------------------+-------------+
-| nick                | fingerprint                              | count(nick) |
-+---------------------+------------------------------------------+-------------+
-| toretableret        | 1454b68a99f7c6a85cd144f845cdb6d32a798a6c |       12554 |
-| 0xRADIUM            | 0858f19801dc8b969ad7e780223ba0174568e321 |       10017 |
-| bobsrelay           | 144b1351ad710b73b91fefd25597a71c442280a7 |        8388 |
-| Exekute             | 085aa680165a0181665d6768bec2454c95d89581 |        7426 |
-| SaunterFlat         | 08542c041b8810ff33b471b03f65c4846d67321b |        5697 |
-| PublicTorTW         | 147170f5c32e511bd948397365e573d3b8d5be65 |        4671 |
-| collonadesva19      | 085a3d94c1623ff3eb4896ed30e701ab47b55eb1 |        3636 |
-| bluetor             | 145f562178f52ef2e8c803648f862cce6d0e9c0f |        3472 |
-| MagnetronFR1        | 145aee9359a8943189500c5451722caa7eeec6c3 |        3415 |
-| zuzu                | 147d58bc76e9ca29b83a3a08056db078a6dc833d |        2645 |
-| thegreenripperishid | 0850aac3a8003b9617ea2820cd04d5bc51502a87 |        2316 |
-| ILikeTurtles        | 086dd1401ea27e25a720b63186ad11066119e768 |        1951 |
-| icebeerNLXeonFour   | 087a6e0b984fdec1dfa4458c9b244f2791750e3f |        1741 |
-| JohnGaltsPi         | 0873687fbe19f9eb47384dd25b5c85fa83305b8a |        1737 |
-| 0xstraightangle     | 146d50763c054d8f0276273da8a869ce462f9873 |        1636 |
-| rasptor001          | 087ece6cf9a1ac3749549670367660150e185f6f |         658 |
-| default             | 086215daf9dc201a9f24707009ad162bbaac7c65 |         616 |
-| 8lyWARGTU4wesrfy8i  | 0882440874034afbe2fbf16463a290f3278e24f7 |         557 |
-| wortwortwort        | 084a1fafe722a7ce46f470191748ae3233fe477c |         428 |
-| endian              | 08e032b7a84dd4934006bebbce4a57dfdbf90ce1 |         326 |
-| bananaapplefeet     | 146c2b8101fe760e78608fb3e4ac7ef74cd169f9 |         246 |
-| StardustUtopia      | 148a31a84d298d73f7187b081be7ce59eb477651 |         198 |
-| Unnamed             | 08c374652830d0e40e0aceeb738ab1dab3552b4a |         174 |
-| LiveFreeOrDie777    | 084c5ede763c984d8274db001c9145c8a66c06b3 |         173 |
-| Applied             | 145c6e4088432627d47001eff793911dc0277a21 |         171 |
-| bauruine73          | 08f27957f4a2a9b9db1c60b2c47e5ba0a3fd2299 |         117 |
-| Kenjioseri          | 1484b4493dd4cd3a449725313b33a9b7486d514a |          97 |
-| tingPLrnp1          | 14633f19d8ab5f63b25574c44a596f559dbf3301 |          74 |
-| treadlightly2       | 14ab828246583985330de111b274ac2e2866f268 |          67 |
-| QuasWexExort        | 085a7ab20fec022c466c0ced2b984759dbfe8735 |          65 |
-| 404server           | 147cd2e796fde933697434cd6ad47f3ef91e0570 |          58 |
-| LittleWhinging      | 092365a414611805092a42936b98aa2599a34bfa |          49 |
-| torrot              | 084a1fafe722a7ce46f470191748ae3233fe477c |          40 |
-| VMDKHOSTINGCOM      | 088ede376412c7e92d007b5e8c798c66f96becca |          39 |
-| CatRelay24          | 1455f9e99ae1ba145838c5779a18bc614634220a |          35 |
-| azetorl             | 091d5e9a9205aa3f8e372ce4343f7b009a5c209b |          32 |
-| esbek3              | 14794d4a1deae10bbe12b0e22ad3beac58a26561 |          31 |
-| T0R3X1TN0D3         | 148ae6c09ef94daf7db3f6638d5350d5e4948140 |          25 |
-| OnionSoup           | 08d22679377c9ef701193c1f199d9b0b3f1aee3c |          23 |
-| gpfTOR7             | 14be6d0789a234bc4c1866b809d8062d22ee38cf |          12 |
-| AnonymousL3         | 092c1788954409148de528224f00cc49f402df8d |           6 |
-| chaoscomputerclub30 | 0936672091ad02665560f0c8b09b890a98590be2 |           5 |
-+---------------------+------------------------------------------+-------------+
+mysql> SELECT nick, fingerprint, identity, ip, count(identity) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(identity) DESC;
++---------------------+------------------------------------------+-----------------------------+-----------------+-----------------+
+| nick                | fingerprint                              | identity                    | ip              | count(identity) |
++---------------------+------------------------------------------+-----------------------------+-----------------+-----------------+
+| toretableret        | 1454b68a99f7c6a85cd144f845cdb6d32a798a6c | FFS2ipn3xqhc0UT4Rc220yp5imw | 5.9.56.18       |           12554 |
+| 0xRADIUM            | 0858f19801dc8b969ad7e780223ba0174568e321 | CFjxmAHci5aa1+eAIjugF0Vo4yE | 151.236.24.228  |           10017 |
+| bobsrelay           | 144b1351ad710b73b91fefd25597a71c442280a7 | FEsTUa1xC3O5H+/SVZenHEQigKc | 94.210.56.161   |            8388 |
+| Exekute             | 085aa680165a0181665d6768bec2454c95d89581 | CFqmgBZaAYFmXWdovsJFTJXYlYE | 204.45.182.226  |            7426 |
+| SaunterFlat         | 08542c041b8810ff33b471b03f65c4846d67321b | CFQsBBuIEP8ztHGwP2XEhG1nMhs | 173.230.152.5   |            5697 |
+| PublicTorTW         | 147170f5c32e511bd948397365e573d3b8d5be65 | FHFw9cMuURvZSDlzZeVz07jVvmU | 140.138.143.33  |            4671 |
+| collonadesva19      | 085a3d94c1623ff3eb4896ed30e701ab47b55eb1 | CFo9lMFiP/PrSJbtMOcBq0e1XrE | 76.4.93.67      |            3636 |
+| bluetor             | 145f562178f52ef2e8c803648f862cce6d0e9c0f | FF9WIXj1LvLoyANkj4Yszm0OnA8 | 213.100.65.214  |            3472 |
+| MagnetronFR1        | 145aee9359a8943189500c5451722caa7eeec6c3 | FFruk1molDGJUAxUUXIsqn7uxsM | 95.130.9.190    |            3415 |
+| zuzu                | 147d58bc76e9ca29b83a3a08056db078a6dc833d | FH1YvHbpyim4OjoIBW2weKbcgz0 | 212.238.237.208 |            2645 |
+| thegreenripperishid | 0850aac3a8003b9617ea2820cd04d5bc51502a87 | CFCqw6gAO5YX6iggzQTVvFFQKoc | 88.176.180.7    |            2316 |
+| ILikeTurtles        | 086dd1401ea27e25a720b63186ad11066119e768 | CG3RQB6ifiWnILYxhq0RBmEZ52g | 71.85.128.188   |            1951 |
+| icebeerNLXeonFour   | 087a6e0b984fdec1dfa4458c9b244f2791750e3f | CHpuC5hP3sHfpEWMmyRPJ5F1Dj8 | 213.163.71.84   |            1741 |
+| JohnGaltsPi         | 0873687fbe19f9eb47384dd25b5c85fa83305b8a | CHNof74Z+etHOE3SW1yF+oMwW4o | 95.80.9.54      |            1737 |
+| 0xstraightangle     | 146d50763c054d8f0276273da8a869ce462f9873 | FG1QdjwFTY8Cdic9qKhpzkYvmHM | 68.108.191.38   |            1636 |
+| rasptor001          | 087ece6cf9a1ac3749549670367660150e185f6f | CH7ObPmhrDdJVJZwNnZgFQ4YX28 | 85.216.87.63    |             658 |
+| default             | 086215daf9dc201a9f24707009ad162bbaac7c65 | CGIV2vncIBqfJHBwCa0WK7qsfGU | 87.206.148.227  |             616 |
+| 8lyWARGTU4wesrfy8i  | 0882440874034afbe2fbf16463a290f3278e24f7 | CIJECHQDSvvi+/FkY6KQ8yeOJPc | 176.58.121.159  |             557 |
+| wortwortwort        | 084a1fafe722a7ce46f470191748ae3233fe477c | CEofr+cip85G9HAZF0iuMjP+R3w | 198.27.76.188   |             428 |
+| endian              | 08e032b7a84dd4934006bebbce4a57dfdbf90ce1 | COAyt6hN1JNABr67zkpX39v5DOE | 85.10.228.31    |             326 |
+| bananaapplefeet     | 146c2b8101fe760e78608fb3e4ac7ef74cd169f9 | FGwrgQH+dg54YI+z5Kx+90zRafk | 213.187.245.93  |             246 |
+| StardustUtopia      | 148a31a84d298d73f7187b081be7ce59eb477651 | FIoxqE0pjXP3GHsIG+fOWetHdlE | 91.121.80.162   |             198 |
+| Unnamed             | 08c374652830d0e40e0aceeb738ab1dab3552b4a | CMN0ZSgw0OQOCs7rc4qx2rNVK0o | 50.155.192.234  |             174 |
+| LiveFreeOrDie777    | 084c5ede763c984d8274db001c9145c8a66c06b3 | CExe3nY8mE2CdNsAHJFFyKZsBrM | 178.62.152.113  |             173 |
+| Applied             | 145c6e4088432627d47001eff793911dc0277a21 | FFxuQIhDJifUcAHv95ORHcAneiE | 193.107.17.157  |             171 |
+| bauruine73          | 08f27957f4a2a9b9db1c60b2c47e5ba0a3fd2299 | CPJ5V/SiqbnbHGCyxH5boKP9Ipk | 212.83.154.33   |             117 |
+| Kenjioseri          | 1484b4493dd4cd3a449725313b33a9b7486d514a | FIS0ST3UzTpElyUxOzOpt0htUUo | 89.221.249.161  |              97 |
+| tingPLrnp1          | 14633f19d8ab5f63b25574c44a596f559dbf3301 | FGM/GdirX2OyVXTESllvVZ2/MwE | 200.129.132.18  |              74 |
+| treadlightly2       | 14ab828246583985330de111b274ac2e2866f268 | FKuCgkZYOYUzDeERsnSsLihm8mg | 76.103.100.27   |              67 |
+| QuasWexExort        | 085a7ab20fec022c466c0ced2b984759dbfe8735 | CFp6sg/sAixGbAztK5hHWdv+hzU | 65.30.54.130    |              65 |
+| 404server           | 147cd2e796fde933697434cd6ad47f3ef91e0570 | FHzS55b96TNpdDTNatR/PvkeBXA | 218.222.251.33  |              58 |
+| LittleWhinging      | 092365a414611805092a42936b98aa2599a34bfa | CSNlpBRhGAUJKkKTa5iqJZmjS/o | 89.22.97.58     |              49 |
+| torrot              | 084a1fafe722a7ce46f470191748ae3233fe477c | CEofr+cip85G9HAZF0iuMjP+R3w | 198.27.76.188   |              40 |
+| VMDKHOSTINGCOM      | 088ede376412c7e92d007b5e8c798c66f96becca | CI7eN2QSx+ktAHtejHmMZvlr7Mo | 64.182.230.99   |              39 |
+| CatRelay24          | 1455f9e99ae1ba145838c5779a18bc614634220a | FFX56ZrhuhRYOMV3mhi8YUY0Igo | 5.230.255.117   |              35 |
+| azetorl             | 091d5e9a9205aa3f8e372ce4343f7b009a5c209b | CR1empIFqj+ONyzkND97AJpcIJs | 95.211.224.183  |              32 |
+| esbek3              | 14794d4a1deae10bbe12b0e22ad3beac58a26561 | FHlNSh3q4Qu+ErDiKtO+rFiiZWE | 195.191.233.223 |              31 |
+| T0R3X1TN0D3         | 148ae6c09ef94daf7db3f6638d5350d5e4948140 | FIrmwJ75Ta99s/ZjjVNQ1eSUgUA | 108.205.160.132 |              25 |
+| OnionSoup           | 08d22679377c9ef701193c1f199d9b0b3f1aee3c | CNImeTd8nvcBGTwfGZ2bCz8a7jw | 87.195.253.3    |              23 |
+| gpfTOR7             | 14be6d0789a234bc4c1866b809d8062d22ee38cf | FL5tB4miNLxMGGa4CdgGLSLuOM8 | 87.236.194.158  |              12 |
+| AnonymousL3         | 092c1788954409148de528224f00cc49f402df8d | CSwXiJVECRSN5SgiTwDMSfQC340 | 96.226.95.111   |               6 |
+| chaoscomputerclub30 | 0936672091ad02665560f0c8b09b890a98590be2 | CTZnIJGtAmZVYPDIsJuJCphZC+I | 77.244.254.230  |               5 |
++---------------------+------------------------------------------+-----------------------------+-----------------+-----------------+
 42 rows in set (0.07 sec)
 
-mysql> SELECT nick, fingerprint,ip, count(fingerprint) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(nick) DESC;
-+---------------------+------------------------------------------+-----------------+--------------------+
-| nick                | fingerprint                              | ip              | count(fingerprint) |
-+---------------------+------------------------------------------+-----------------+--------------------+
-| toretableret        | 1454b68a99f7c6a85cd144f845cdb6d32a798a6c | 5.9.56.18       |              12554 |
-| 0xRADIUM            | 0858f19801dc8b969ad7e780223ba0174568e321 | 151.236.24.228  |              10017 |
-| bobsrelay           | 144b1351ad710b73b91fefd25597a71c442280a7 | 94.210.56.161   |               8388 |
-| Exekute             | 085aa680165a0181665d6768bec2454c95d89581 | 204.45.182.226  |               7426 |
-| SaunterFlat         | 08542c041b8810ff33b471b03f65c4846d67321b | 173.230.152.5   |               5697 |
-| PublicTorTW         | 147170f5c32e511bd948397365e573d3b8d5be65 | 140.138.143.33  |               4671 |
-| collonadesva19      | 085a3d94c1623ff3eb4896ed30e701ab47b55eb1 | 76.4.93.67      |               3636 |
-| bluetor             | 145f562178f52ef2e8c803648f862cce6d0e9c0f | 213.100.65.214  |               3472 |
-| MagnetronFR1        | 145aee9359a8943189500c5451722caa7eeec6c3 | 95.130.9.190    |               3415 |
-| zuzu                | 147d58bc76e9ca29b83a3a08056db078a6dc833d | 212.238.237.208 |               2645 |
-| thegreenripperishid | 0850aac3a8003b9617ea2820cd04d5bc51502a87 | 88.176.180.7    |               2316 |
-| ILikeTurtles        | 086dd1401ea27e25a720b63186ad11066119e768 | 71.85.128.188   |               1951 |
-| icebeerNLXeonFour   | 087a6e0b984fdec1dfa4458c9b244f2791750e3f | 213.163.71.84   |               1741 |
-| JohnGaltsPi         | 0873687fbe19f9eb47384dd25b5c85fa83305b8a | 95.80.9.54      |               1737 |
-| 0xstraightangle     | 146d50763c054d8f0276273da8a869ce462f9873 | 68.108.191.38   |               1636 |
-| rasptor001          | 087ece6cf9a1ac3749549670367660150e185f6f | 85.216.87.63    |                658 |
-| default             | 086215daf9dc201a9f24707009ad162bbaac7c65 | 87.206.148.227  |                616 |
-| 8lyWARGTU4wesrfy8i  | 0882440874034afbe2fbf16463a290f3278e24f7 | 176.58.121.159  |                557 |
-| wortwortwort        | 084a1fafe722a7ce46f470191748ae3233fe477c | 198.27.76.188   |                428 |
-| endian              | 08e032b7a84dd4934006bebbce4a57dfdbf90ce1 | 85.10.228.31    |                326 |
-| bananaapplefeet     | 146c2b8101fe760e78608fb3e4ac7ef74cd169f9 | 213.187.245.93  |                246 |
-| StardustUtopia      | 148a31a84d298d73f7187b081be7ce59eb477651 | 91.121.80.162   |                198 |
-| Unnamed             | 08c374652830d0e40e0aceeb738ab1dab3552b4a | 50.155.192.234  |                174 |
-| LiveFreeOrDie777    | 084c5ede763c984d8274db001c9145c8a66c06b3 | 178.62.152.113  |                173 |
-| Applied             | 145c6e4088432627d47001eff793911dc0277a21 | 193.107.17.157  |                171 |
-| bauruine73          | 08f27957f4a2a9b9db1c60b2c47e5ba0a3fd2299 | 212.83.154.33   |                117 |
-| Kenjioseri          | 1484b4493dd4cd3a449725313b33a9b7486d514a | 89.221.249.161  |                 97 |
-| tingPLrnp1          | 14633f19d8ab5f63b25574c44a596f559dbf3301 | 200.129.132.18  |                 74 |
-| treadlightly2       | 14ab828246583985330de111b274ac2e2866f268 | 76.103.100.27   |                 67 |
-| QuasWexExort        | 085a7ab20fec022c466c0ced2b984759dbfe8735 | 65.30.54.130    |                 65 |
-| 404server           | 147cd2e796fde933697434cd6ad47f3ef91e0570 | 218.222.251.33  |                 58 |
-| LittleWhinging      | 092365a414611805092a42936b98aa2599a34bfa | 89.22.97.58     |                 49 |
-| torrot              | 084a1fafe722a7ce46f470191748ae3233fe477c | 198.27.76.188   |                 40 |
-| VMDKHOSTINGCOM      | 088ede376412c7e92d007b5e8c798c66f96becca | 64.182.230.99   |                 39 |
-| CatRelay24          | 1455f9e99ae1ba145838c5779a18bc614634220a | 5.230.255.117   |                 35 |
-| azetorl             | 091d5e9a9205aa3f8e372ce4343f7b009a5c209b | 95.211.224.183  |                 32 |
-| esbek3              | 14794d4a1deae10bbe12b0e22ad3beac58a26561 | 195.191.233.223 |                 31 |
-| T0R3X1TN0D3         | 148ae6c09ef94daf7db3f6638d5350d5e4948140 | 108.205.160.132 |                 25 |
-| OnionSoup           | 08d22679377c9ef701193c1f199d9b0b3f1aee3c | 87.195.253.3    |                 23 |
-| gpfTOR7             | 14be6d0789a234bc4c1866b809d8062d22ee38cf | 87.236.194.158  |                 12 |
-| AnonymousL3         | 092c1788954409148de528224f00cc49f402df8d | 96.226.95.111   |                  6 |
-| chaoscomputerclub30 | 0936672091ad02665560f0c8b09b890a98590be2 | 77.244.254.230  |                  5 |
-+---------------------+------------------------------------------+-----------------+--------------------+
-42 rows in set (0.07 sec)
-
-mysql> SELECT nick, fingerprint, identity, count(identity) FROM silkroad6ownowfk GROUP BY nick ORDER BY count(identity) DESC;
-+---------------------+------------------------------------------+-----------------------------+-----------------+
-| nick                | fingerprint                              | identity                    | count(identity) |
-+---------------------+------------------------------------------+-----------------------------+-----------------+
-| toretableret        | 1454b68a99f7c6a85cd144f845cdb6d32a798a6c | FFS2ipn3xqhc0UT4Rc220yp5imw |           12554 |
-| 0xRADIUM            | 0858f19801dc8b969ad7e780223ba0174568e321 | CFjxmAHci5aa1+eAIjugF0Vo4yE |           10017 |
-| bobsrelay           | 144b1351ad710b73b91fefd25597a71c442280a7 | FEsTUa1xC3O5H+/SVZenHEQigKc |            8388 |
-| Exekute             | 085aa680165a0181665d6768bec2454c95d89581 | CFqmgBZaAYFmXWdovsJFTJXYlYE |            7426 |
-| SaunterFlat         | 08542c041b8810ff33b471b03f65c4846d67321b | CFQsBBuIEP8ztHGwP2XEhG1nMhs |            5697 |
-| PublicTorTW         | 147170f5c32e511bd948397365e573d3b8d5be65 | FHFw9cMuURvZSDlzZeVz07jVvmU |            4671 |
-| collonadesva19      | 085a3d94c1623ff3eb4896ed30e701ab47b55eb1 | CFo9lMFiP/PrSJbtMOcBq0e1XrE |            3636 |
-| bluetor             | 145f562178f52ef2e8c803648f862cce6d0e9c0f | FF9WIXj1LvLoyANkj4Yszm0OnA8 |            3472 |
-| MagnetronFR1        | 145aee9359a8943189500c5451722caa7eeec6c3 | FFruk1molDGJUAxUUXIsqn7uxsM |            3415 |
-| zuzu                | 147d58bc76e9ca29b83a3a08056db078a6dc833d | FH1YvHbpyim4OjoIBW2weKbcgz0 |            2645 |
-| thegreenripperishid | 0850aac3a8003b9617ea2820cd04d5bc51502a87 | CFCqw6gAO5YX6iggzQTVvFFQKoc |            2316 |
-| ILikeTurtles        | 086dd1401ea27e25a720b63186ad11066119e768 | CG3RQB6ifiWnILYxhq0RBmEZ52g |            1951 |
-| icebeerNLXeonFour   | 087a6e0b984fdec1dfa4458c9b244f2791750e3f | CHpuC5hP3sHfpEWMmyRPJ5F1Dj8 |            1741 |
-| JohnGaltsPi         | 0873687fbe19f9eb47384dd25b5c85fa83305b8a | CHNof74Z+etHOE3SW1yF+oMwW4o |            1737 |
-| 0xstraightangle     | 146d50763c054d8f0276273da8a869ce462f9873 | FG1QdjwFTY8Cdic9qKhpzkYvmHM |            1636 |
-| rasptor001          | 087ece6cf9a1ac3749549670367660150e185f6f | CH7ObPmhrDdJVJZwNnZgFQ4YX28 |             658 |
-| default             | 086215daf9dc201a9f24707009ad162bbaac7c65 | CGIV2vncIBqfJHBwCa0WK7qsfGU |             616 |
-| 8lyWARGTU4wesrfy8i  | 0882440874034afbe2fbf16463a290f3278e24f7 | CIJECHQDSvvi+/FkY6KQ8yeOJPc |             557 |
-| wortwortwort        | 084a1fafe722a7ce46f470191748ae3233fe477c | CEofr+cip85G9HAZF0iuMjP+R3w |             428 |
-| endian              | 08e032b7a84dd4934006bebbce4a57dfdbf90ce1 | COAyt6hN1JNABr67zkpX39v5DOE |             326 |
-| bananaapplefeet     | 146c2b8101fe760e78608fb3e4ac7ef74cd169f9 | FGwrgQH+dg54YI+z5Kx+90zRafk |             246 |
-| StardustUtopia      | 148a31a84d298d73f7187b081be7ce59eb477651 | FIoxqE0pjXP3GHsIG+fOWetHdlE |             198 |
-| Unnamed             | 08c374652830d0e40e0aceeb738ab1dab3552b4a | CMN0ZSgw0OQOCs7rc4qx2rNVK0o |             174 |
-| LiveFreeOrDie777    | 084c5ede763c984d8274db001c9145c8a66c06b3 | CExe3nY8mE2CdNsAHJFFyKZsBrM |             173 |
-| Applied             | 145c6e4088432627d47001eff793911dc0277a21 | FFxuQIhDJifUcAHv95ORHcAneiE |             171 |
-| bauruine73          | 08f27957f4a2a9b9db1c60b2c47e5ba0a3fd2299 | CPJ5V/SiqbnbHGCyxH5boKP9Ipk |             117 |
-| Kenjioseri          | 1484b4493dd4cd3a449725313b33a9b7486d514a | FIS0ST3UzTpElyUxOzOpt0htUUo |              97 |
-| tingPLrnp1          | 14633f19d8ab5f63b25574c44a596f559dbf3301 | FGM/GdirX2OyVXTESllvVZ2/MwE |              74 |
-| treadlightly2       | 14ab828246583985330de111b274ac2e2866f268 | FKuCgkZYOYUzDeERsnSsLihm8mg |              67 |
-| QuasWexExort        | 085a7ab20fec022c466c0ced2b984759dbfe8735 | CFp6sg/sAixGbAztK5hHWdv+hzU |              65 |
-| 404server           | 147cd2e796fde933697434cd6ad47f3ef91e0570 | FHzS55b96TNpdDTNatR/PvkeBXA |              58 |
-| LittleWhinging      | 092365a414611805092a42936b98aa2599a34bfa | CSNlpBRhGAUJKkKTa5iqJZmjS/o |              49 |
-| torrot              | 084a1fafe722a7ce46f470191748ae3233fe477c | CEofr+cip85G9HAZF0iuMjP+R3w |              40 |
-| VMDKHOSTINGCOM      | 088ede376412c7e92d007b5e8c798c66f96becca | CI7eN2QSx+ktAHtejHmMZvlr7Mo |              39 |
-| CatRelay24          | 1455f9e99ae1ba145838c5779a18bc614634220a | FFX56ZrhuhRYOMV3mhi8YUY0Igo |              35 |
-| azetorl             | 091d5e9a9205aa3f8e372ce4343f7b009a5c209b | CR1empIFqj+ONyzkND97AJpcIJs |              32 |
-| esbek3              | 14794d4a1deae10bbe12b0e22ad3beac58a26561 | FHlNSh3q4Qu+ErDiKtO+rFiiZWE |              31 |
-| T0R3X1TN0D3         | 148ae6c09ef94daf7db3f6638d5350d5e4948140 | FIrmwJ75Ta99s/ZjjVNQ1eSUgUA |              25 |
-| OnionSoup           | 08d22679377c9ef701193c1f199d9b0b3f1aee3c | CNImeTd8nvcBGTwfGZ2bCz8a7jw |              23 |
-| gpfTOR7             | 14be6d0789a234bc4c1866b809d8062d22ee38cf | FL5tB4miNLxMGGa4CdgGLSLuOM8 |              12 |
-| AnonymousL3         | 092c1788954409148de528224f00cc49f402df8d | CSwXiJVECRSN5SgiTwDMSfQC340 |               6 |
-| chaoscomputerclub30 | 0936672091ad02665560f0c8b09b890a98590be2 | CTZnIJGtAmZVYPDIsJuJCphZC+I |               5 |
-+---------------------+------------------------------------------+-----------------------------+-----------------+
-42 rows in set (0.07 sec)
