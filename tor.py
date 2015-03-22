@@ -66,8 +66,9 @@ def calculate_and_write_hsdir(h,d,m,y):
 			if m < 10:
 				m = "0"+str(m)
 			
-			consensus_file_name = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-00-00-consensus"
-			print consensus_file_name 
+			con_date_time = str(y) + "-" + str(m) + "-" + str(d) + "-" + str(h) + "-00-00" 
+			consensus_file_name = con_date_time  +"-consensus"
+			print con_date_time 
 
 			consensus.fetchConsensus(consensus_file_name) #Retrieves the consensus 
 
@@ -75,7 +76,7 @@ def calculate_and_write_hsdir(h,d,m,y):
 			descriptor_id_list = [] #Setting up variables to take an array list to be used later on
 
 			for i in range(0, 2):
-			    descriptor_id = get_descriptor_Id(onion_Add, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
+			    descriptor_id = get_descriptor_Id(onion_Add, con_date_time, i) #Passes the onion address and i to the get_descriptor_id function in rendFunccs ("descriptor-id" is a identifier that is calculated by the hidden service and its clients)
 			    descriptor_id_list.append(descriptor_id) # Makes sure all 3 desciptor ids are stored
 			    responsible_HSDir = find_responsible_HSDir(descriptor_id)# Passes the descriptor to the find_responsible_HSDir function in rendFunccs (returns the responsible hidden service directories for the selected hidden service)
 			    responsible_HSDir_list.append(responsible_HSDir) # Saves all responsible HSDir information in a list to use later (3 responsible hidden service directories)
@@ -83,20 +84,6 @@ def calculate_and_write_hsdir(h,d,m,y):
 			identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime = extract_HSDir_data(responsible_HSDir_list) # Extracts the data from the reponsible Hidden service directories and assigns these to several variables for use later on
 
 			c = 0
-
-
-# >>> idt = "AF7N6Kjzf3Z04P2vYeKjF4xI6PA"
-# >>>             idt += "=" * (4-len(idt)%4) # pad b64 string
-#   File "<stdin>", line 1
-#     idt += "=" * (4-len(idt)%4) # pad b64 string
-#     ^
-# IndentationError: unexpected indent
-# >>> idt += "=" * (4-len(idt)%4) # pad b64 string
-# >>> ident = base64.standard_b64decode(idt)
-# >>> ident = binascii.hexlify(ident)
-# >>> ident
-# '005ecde8a8f37f7674e0fdaf61e2a3178c48e8f0
-
 
 			while c < len(nick):
 				format = """','"""
