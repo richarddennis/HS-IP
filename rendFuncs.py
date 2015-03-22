@@ -26,7 +26,7 @@ from hashlib import sha1
 from base64 import b32encode, b32decode, b64decode
 from random import randint
 from bisect import bisect_left
-
+from datetime import datetime
 
 
 
@@ -37,9 +37,18 @@ from bisect import bisect_left
 #Modified version of Donncha O' Cearbhaill code
 #Input is the onion address as well the replica - How many times these descriptors have been published (3) Although some HS can have up to 10
 # descriptor-id  = H(permanent-id | H(time-period | descriptor-cookie | replica))
-def get_descriptor_Id(onion_Add, replica):
+def get_descriptor_Id(onion_Add, con_date_time, replica):
   service_id = b32decode(onion_Add, 1) 
-  time_period = int((((time.time()) + ((struct.unpack('B', service_id[0])[0] * 86400) ) / 256) ) / 86400 + 0)
+
+
+  target = time.strptime(con_date_time, '%Y-%m-%d-%H-%M-%S')
+  t = int(time.mktime(target))
+  t = str(t) + ".143475"
+  # Append .143475 to the end, constant microseconds
+
+
+
+  time_period = int((((float(t)) + ((struct.unpack('B', service_id[0])[0] * 86400) ) / 256) ) / 86400 + 0)
   s = sha1()
   s.update(struct.pack('>I', time_period)[:4]);
   s.update('{0:02X}'.format(replica).decode('hex'))
@@ -99,11 +108,19 @@ def getIndex(str,arr):
 #Output is the ip_addresses, dirport, port, nickname, identity for all three responsble HSdirs (although there can be more or less than 3 although this is rare)
 def extract_HSDir_data(responsible_HSDir_list):
   # Extracts the data here from the list generated above to connect to the web url to get the rendezvous2 data
-  ip_addresses = [i.get('ip') for j in responsible_HSDir_list for i in j]
-  dirport =  [i.get('dirport') for j in responsible_HSDir_list for i in j]
-  port =  [i.get('port') for j in responsible_HSDir_list for i in j]
-  nickname = [i.get('nick') for j in responsible_HSDir_list for i in j]
+  identityb32 = [i.get('identityb32') for j in responsible_HSDir_list for i in j]
+  pubdate = [i.get('pubdate') for j in responsible_HSDir_list for i in j]
+  dirport = [i.get('dirport') for j in responsible_HSDir_list for i in j]
+  ip = [i.get('ip') for j in responsible_HSDir_list for i in j]
+  orport = [i.get('orport') for j in responsible_HSDir_list for i in j]
+  identityhash = [i.get('identityhash') for j in responsible_HSDir_list for i in j]
+  nick = [i.get('nick') for j in responsible_HSDir_list for i in j]
+  version = [i.get('version') for j in responsible_HSDir_list for i in j]
+  flags = [i.get('flags') for j in responsible_HSDir_list for i in j]
   identity = [i.get('identity') for j in responsible_HSDir_list for i in j]
-  return ip_addresses, dirport, port, nickname, identity
+  digest = [i.get('digest') for j in responsible_HSDir_list for i in j]
+  pubtime = [i.get('pubtime') for j in responsible_HSDir_list for i in j]
+
+  return identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime
 
 
