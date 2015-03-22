@@ -40,15 +40,15 @@ from datetime import datetime
 def get_descriptor_Id(onion_Add, con_date_time, replica):
   service_id = b32decode(onion_Add, 1) 
 
+  ### Correctly sets up the time, before iwas using time.now, obv no good and gaveus wrong answers
 
   target = time.strptime(con_date_time, '%Y-%m-%d-%H-%M-%S')
   t = int(time.mktime(target))
   t = str(t) + ".143475"
   # Append .143475 to the end, constant microseconds
 
-
-
   time_period = int((((float(t)) + ((struct.unpack('B', service_id[0])[0] * 86400) ) / 256) ) / 86400 + 0)
+
   s = sha1()
   s.update(struct.pack('>I', time_period)[:4]);
   s.update('{0:02X}'.format(replica).decode('hex'))
