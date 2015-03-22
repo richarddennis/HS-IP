@@ -102,10 +102,12 @@ def calculate_and_write_hsdir(h,d,m,y):
 				format = """','"""
 
 				idt = identityb32[c]
+				print idt
 				idt += "=" * (4-len(idt)%4) # pad b64 string
 				ident = base64.standard_b64decode(idt)
 				identity = binascii.hexlify(ident)
-
+				# assert len(identity) == 40
+				print identity
 
 				flags[c] = str(flags[c]).replace("'", "")
 				# identity[c] = str(identity[c]).replace("'", "")
