@@ -1,0 +1,44 @@
+
+Some relays changed their fingerprints, and the PPTOR... group there was unusally high number acting as the Induction points
+
+
+mysql> SELECT nick, fingerprint, identity, ip, consensus FROM agorahooawayyfoe where nick like '%PPTOR%' group by fingerprint;
+
+
+
+
+
+
++-----------+------------------------------------------+-----------------------------+-----------------+-------------------------------+
+| nick      | fingerprint                              | identity                    | ip              | consensus                     |
++-----------+------------------------------------------+-----------------------------+-----------------+-------------------------------+
+| PPTOR0041 | 08ad18be5493c9ecae12e060e4846e80265ae436 | CK0YvlSTyeyuEuBg5IRugCZa5DY | 176.10.115.98   | 2014-09-09-01-00-00-consensus |
+| PPTOR0014 | 151507d30e097bdec8551da40730322c1688318e | FRUH0w4Je97IVR2kBzAyLBaIMY4 | 217.114.213.18  | 2014-07-05-01-00-00-consensus |
+| PPTOR0012 | 2704a6d7a819dccfd891197524133853858f2f3b | JwSm16gZ3M/YkRl1JBM4U4WPLzs | 41.215.241.234  | 2015-02-20-00-00-00-consensus |
+| PPTOR0003 | 288a33876a0b0ee9e6af5a18d9b3638d8a2b63b2 | KIozh2oLDunmr1oY2bNjjYorY7I | 31.204.153.49   | 2015-01-29-00-00-00-consensus |
+| PPTOR0021 | 303dd6b1dc9728356b188fa111ef01d3b2947367 | MD3WsdyXKDVrGI+hEe8B07KUc2c | 5.149.250.53    | 2015-01-28-00-00-00-consensus |
+| PPTOR0011 | 3507e19b52b0e6085f09ce25f9464743c5ae6541 | NQfhm1Kw5ghfCc4l+UZHQ8WuZUE | 213.239.217.228 | 2014-07-08-01-00-00-consensus |
+| PPTOR0040 | 4586e04cb41e1ba1c78856e22502bb07e7260a44 | RYbgTLQeG6HHiFbiJQK7B+cmCkQ | 94.242.243.66   | 2014-06-25-05-00-00-consensus |
+| PPTOR0016 | 4e0986f14e34371ac44d15d9fc2b37bfc89337d9 | TgmG8U40NxrETRXZ/Cs3v8iTN9k | 178.162.194.30  | 2014-10-16-01-00-00-consensus |
+| PPTOR0001 | 558dd4b58d309922177cac1fe3f5f4a20286a9b9 | VY3UtY0wmSIXfKwf4/X0ogKGqbk | 177.47.109.21   | 2015-01-29-00-00-00-consensus |
+| PPTOR0007 | 56b296655cd0c1148c776777881fad33b0c33438 | VrKWZVzQwRSMd2d3iB+tM7DDNDg | 31.204.150.138  | 2014-11-30-00-00-00-consensus |
+| PPTOR0010 | 5ccdc37c00cfeb0d022b0f4dfd7d177dced399f3 | XM3DfADP6w0CKw9N/X0Xfc7TmfM | 202.60.66.32    | 2014-07-12-01-00-00-consensus |
+| PPTOR0036 | 70c72cb33ca2f84a494b44d36f19eefd57a70c10 | cMcsszyi+EpJS0TTbxnu/VenDBA | 193.105.134.117 | 2014-12-27-00-00-00-consensus |
+| PPTOR0013 | 7ab55d9d371bbf00a8164f0b625dcc2a7c220283 | erVdnTcbvwCoFk8LYl3MKnwiAoM | 67.202.67.106   | 2014-11-29-00-00-00-consensus |
+| PPTOR0001 | 7e84ca57e162528438dc8760b48bcbfa3dc27e18 | foTKV+FiUoQ43IdgtIvL+j3Cfhg | 177.47.109.21   | 2014-09-21-01-00-00-consensus |
+| PPTOR0006 | 815abe3eb7b99959bfc7851f2edeec3856328bfd | gVq+Pre5mVm/x4UfLt7sOFYyi/0 | 5.79.71.195     | 2014-04-05-01-00-00-consensus |
+| PPTOR0009 | 8b01486df40be065d0fa2667c39e3912b4fe36db | iwFIbfQL4GXQ+iZnw545ErT+Nts | 95.211.99.91    | 2014-10-10-01-00-00-consensus |
+| PPTOR0044 | 8f60911b6682e3da7bf86caedc607689df24e806 | j2CRG2aC49p7+Gyu3GB2id8k6AY | 82.221.105.61   | 2014-10-27-00-00-00-consensus |
+| PPTOR0044 | 97f61f48ee3a2eefb61af6845dbd7a78029114ce | l/YfSO46Lu+2GvaEXb16eAKRFM4 | 82.221.105.61   | 2014-04-13-01-00-00-consensus |
+| PPTOR0020 | 98c4d5392a186743f820335c3a6589a8042630de | mMTVOSoYZ0P4IDNcOmWJqAQmMN4 | 178.86.13.232   | 2014-06-15-01-00-00-consensus |
+| PPTOR0005 | 9c07473ca919cb092a2932be301728627d00b5a9 | nAdHPKkZywkqKTK+MBcoYn0Atak | 115.187.74.91   | 2014-12-04-00-00-00-consensus |
+| PPTOR0046 | a6161448dbb29a11038fe73d8c6ecd9ece36baf4 | phYUSNuymhEDj+c9jG7Nns42uvQ | 94.242.255.33   | 2014-09-18-01-00-00-consensus |
+| PPTOR0020 | ac1f102c901bedb3732c56193f72929c355c6483 | rB8QLJAb7bNzLFYZP3KSnDVcZIM | 178.86.13.232   | 2015-01-07-00-00-00-consensus |
+| PPTOR0017 | ad7eb5c222450a41b6c65f82fac89685adf14dd9 | rX61wiJFCkG2xl+C+siWha3xTdk | 204.45.70.98    | 2014-11-15-00-00-00-consensus |
+| PPTOR0008 | af5db499abd627f99527e5da2d22a6982ae71598 | r120mavWJ/mVJ+XaLSKmmCrnFZg | 95.211.99.92    | 2014-02-23-00-00-00-consensus |
+| PPTOR0001 | b7a4718f146139b8137bbd7cf2890afa61c2bab7 | t6RxjxRhObgTe7188okK+mHCurc | 177.47.109.21   | 2014-12-14-00-00-00-consensus |
+| PPTOR0041 | c37bba560fc6574ba977bf506bb9b5d2c4cdf0f4 | w3u6Vg/GV0upd79Qa7m10sTN8PQ | 176.10.115.98   | 2014-04-27-01-00-00-consensus |
+| PPTOR0042 | d6ebe3fc99db340fbd30ed750272c04f4f515fbf | 1uvj/JnbNA+9MO11AnLAT09RX78 | 5.135.143.84    | 2014-11-27-00-00-00-consensus |
+| PPTOR0028 | f07d15edf210083e090c965be52d6baeb5da17ea | 8H0V7fIQCD4JDJZb5S1rrrXaF+o | 185.57.82.25    | 2014-09-21-01-00-00-consensus |
++-----------+------------------------------------------+-----------------------------+-----------------+-------------------------------+
+28 rows in set (0.03 sec)
