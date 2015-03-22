@@ -1,0 +1,113 @@
+mysql> select nick from agorahooawayyfoe group by nick having count(distinct identity) > 1;
++---------------------+
+| nick                |
++---------------------+
+| 404server           |
+| agrajag             |
+| Alice               |
+| assk2               |
+| b0red2              |
+| babetor             |
+| balerion            |
+| BigBrother          |
+| bob                 |
+| BoingBoing          |
+| Chandler03          |
+| chaoscomputerclub19 |
+| chaoscomputerclub32 |
+| chomsky             |
+| darksideofthemoon   |
+| ddwrt               |
+| default             |
+| defiant             |
+| dinomite            |
+| EdwardSnowden       |
+| edwardsnowden2      |
+| eltoro              |
+| EntitaetNull        |
+| ephemer3            |
+| Exekute             |
+| eZer0               |
+| flatcap             |
+| Frechdax            |
+| FuckCensorship      |
+| futai               |
+| hodor               |
+| ididnteditheconfig  |
+| JamesBond007        |
+| JerseyBean          |
+| JustaguyLON2        |
+| lumumba             |
+| marcuse1            |
+| marcuse2            |
+| metaether           |
+| mightyboon          |
+| mullbinde7          |
+| mullbinde8          |
+| nessuno             |
+| okcon2              |
+| OkupiedAmerika      |
+| Orion               |
+| PDRSTor             |
+| PoorRabbit          |
+| PotatoPalace        |
+| PPTOR0001           |
+| PPTOR0020           |
+| PPTOR0041           |
+| PPTOR0044           |
+| RASPTOR             |
+| rasputin            |
+| rawnconnect         |
+| RelayTech           |
+| serotonin           |
+| spfTOR1e2           |
+| supersexytorrelay   |
+| swisspig            |
+| teller              |
+| tingx               |
+| TorAustralisVI      |
+| torchwoodrelay      |
+| TorLand2            |
+| torrelaynstuff      |
+| Torsti              |
+| torstreiktnet       |
+| toxiroxiPL          |
+| toxiroxiRU          |
+| toxiroxiUKfc        |
+| Unnamed             |
+| viksell             |
+| VirilhaRelay1       |
+| vlima               |
+| VMnetTORRelay01     |
+| Volhov              |
+| xxx                 |
+| yaibei8Ej5Bohd8looG |
++---------------------+
+80 rows in set (0.13 sec)
+
+
+mysql> select nick, consensus, ip, fingerprint, identity from agorahooawayyfoe where nick LIKE 'ddwrt' group by fingerprint;
++-------+-------------------------------+----------------+------------------------------------------+-----------------------------+
+| nick  | consensus                     | ip             | fingerprint                              | identity                    |
++-------+-------------------------------+----------------+------------------------------------------+-----------------------------+
+| ddwrt | 2014-05-24-01-00-00-consensus | 212.159.108.31 | 36a91b26e6416784ade00c7d35b7c1942c825d28 | NqkbJuZBZ4St4Ax9NbfBlCyCXSg |
+| ddwrt | 2014-06-20-01-00-00-consensus | 84.92.43.244   | 5b3b4e10f22ae3b541c867bca51358c7b85de3bb | WztOEPIq47VByGe8pRNYx7hd47s |
+| ddwrt | 2014-09-05-01-00-00-consensus | 212.159.108.31 | 61d2ade218aad5b7a4c14e005049a520e6216d77 | YdKt4hiq1bekwU4AUEmlIOYhbXc |
+| ddwrt | 2014-08-05-01-00-00-consensus | 212.159.108.31 | 64716f32440d238b308febfe3b47cc2547b43bd3 | ZHFvMkQNI4swj+v+O0fMJUe0O9M |
+| ddwrt | 2014-06-19-01-00-00-consensus | 84.92.43.244   | a7c4bf00c807f0083b118863a31dcc8b86c8baa0 | p8S/AMgH8Ag7EYhjox3Mi4bIuqA |
+| ddwrt | 2015-02-08-00-00-00-consensus | 212.159.108.31 | db4736d9b76290b194f05d7477af37c5154a0b49 | 20c22bdikLGU8F10d683xRVKC0k |
++-------+-------------------------------+----------------+------------------------------------------+-----------------------------+
+
+
+mysql> select nick, consensus, ip, fingerprint, identity from agorahooawayyfoe where nick LIKE 'ididnteditheconfig' group by fingerprint;
++--------------------+-------------------------------+-----------------+------------------------------------------+-----------------------------+
+| nick               | consensus                     | ip              | fingerprint                              | identity                    |
++--------------------+-------------------------------+-----------------+------------------------------------------+-----------------------------+
+| ididnteditheconfig | 2014-12-01-00-00-00-consensus | 216.55.179.94   | 02777f379f2351be1bcb01d084c3c7cd79a846fd | And/N58jUb4bywHQhMPHzXmoRv0 |
+| ididnteditheconfig | 2015-02-13-00-00-00-consensus | 128.79.186.57   | 5d515690b0c9fd8486160e7e1b712703d2527ff8 | XVFWkLDJ/YSGFg5+G3EnA9JSf/g |
+| ididnteditheconfig | 2014-09-24-01-00-00-consensus | 173.95.158.170  | a781bbc64926ab538d4566857d5ec5a317f57d09 | p4G7xkkmq1ONRWaFfV7Foxf1fQk |
+| ididnteditheconfig | 2014-05-03-01-00-00-consensus | 97.118.166.205  | e1fdf9d3f360e1c8e12ba22ab0062c931122f354 | 4f350/Ng4cjhK6IqsAYskxEi81Q |
+| ididnteditheconfig | 2014-10-08-01-00-00-consensus | 216.106.153.219 | f76799d012c1c8f074f73672cf15930bdcbbe802 | 92eZ0BLByPB09zZyzxWTC9y76AI |
++--------------------+-------------------------------+-----------------+------------------------------------------+-----------------------------+
+
+
