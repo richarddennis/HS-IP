@@ -81,36 +81,42 @@ def calculate_and_write_hsdir(h,d,m,y):
 			    responsible_HSDir_list.append(responsible_HSDir) # Saves all responsible HSDir information in a list to use later (3 responsible hidden service directories)
 
 			identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime = extract_HSDir_data(responsible_HSDir_list) # Extracts the data from the reponsible Hidden service directories and assigns these to several variables for use later on
-			# web_addresses = connect_to_web_lookup(ip_addresses, dirport, descriptor_id_list) # Creates the IP address with Port numbers for all the responsible hidden service directories
-
-			# Prepare SQL query to INSERT a record into the database.
-			# sql = "INSERT INTO " + "`" + onion_Add + "`" + "(`nick`)"+ "VALUES" + nick[0]
-
 
 			c = 0
+
+
+# >>> idt = "AF7N6Kjzf3Z04P2vYeKjF4xI6PA"
+# >>>             idt += "=" * (4-len(idt)%4) # pad b64 string
+#   File "<stdin>", line 1
+#     idt += "=" * (4-len(idt)%4) # pad b64 string
+#     ^
+# IndentationError: unexpected indent
+# >>> idt += "=" * (4-len(idt)%4) # pad b64 string
+# >>> ident = base64.standard_b64decode(idt)
+# >>> ident = binascii.hexlify(ident)
+# >>> ident
+# '005ecde8a8f37f7674e0fdaf61e2a3178c48e8f0
+
 
 			while c < len(nick):
 				format = """','"""
 
-				# print binascii.hexlify(identity[c])
-			# # #Not sure if i should do this ?
-			# binascii.hexlify(identity[c])
+				idt = identityb32[c]
+				idt += "=" * (4-len(idt)%4) # pad b64 string
+				ident = base64.standard_b64decode(idt)
+				identity = binascii.hexlify(ident)
 
-				
-				# print flags[c]
+
 				flags[c] = str(flags[c]).replace("'", "")
-				identity[c] = str(identity[c]).replace("'", "")
+				# identity[c] = str(identity[c]).replace("'", "")
 
 				sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime)
-				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + binascii.hexlify(identity[c]) + format + digest[c] + format + pubtime[c] + """')"""
+				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + identity + format + digest[c] + format + pubtime[c] + """')"""
 
 				try:
-				   # Execute the SQL command
 				   cursor.execute(sql)
-				   # Commit your changes in the database
 				   db.commit()
 				except:
-				   # Rollback in case there is any error
 				   db.rollback()
 				   print "adding to db error"
 
@@ -121,14 +127,6 @@ def calculate_and_write_hsdir(h,d,m,y):
 			h = 00
 			d = int(d) + 1
 			return d
-				# 	d = d + 1
-
-
-###########################################################################################################################################################################################
-###########################################################################################################################################################################################
-###########################################################################################################################################################################################
-###########################################################################################################################################################################################
-###########################################################################################################################################################################################
 
 
 # calculate_and_write_hsdir(h,d,m,y)
@@ -154,11 +152,9 @@ def run_calculate(h,d,m,y):
 
    	if m == 3:
    		while True:
-   			print "In MARCH LOOP"
 	 		d = calculate_and_write_hsdir(h,d,m,y)
 	   		if d == 31:
         			calculate_and_write_hsdir(h,d,m,y)
-        			print "March Done"
         			d = 1
         			m = m + 1
         			break
@@ -247,13 +243,6 @@ h = 00 #Hour
 d = 07 #Day
 m = 10 #Month
 y = 2013 #Year
-
-
-# h = 00 #Hour
-# d = 17#Day
-# m = 01 #Month
-# y = 2015 #Year
-
 
 run_calculate(h,d,m,y)
 run_calculate(00,1,1,2014)
