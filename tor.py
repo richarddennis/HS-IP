@@ -45,7 +45,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS " + onion_Add +
 	+ "dirport  CHAR(6) NOT NULL,"
 	+ "ip  CHAR(40) NOT NULL,"
 	+ "orport  CHAR(40) NOT NULL,"
-	+ "identityhash  CHAR(40) NOT NULL,"
+	+ "fingerprint  CHAR(40) NOT NULL,"
 	+ "nick  CHAR(40) NOT NULL,"
 	+ "version  CHAR(40) NOT NULL,"
 	+ "flags  VARCHAR(500) NOT NULL,"
@@ -100,20 +100,17 @@ def calculate_and_write_hsdir(h,d,m,y):
 
 			while c < len(nick):
 				format = """','"""
+				assert len(identityhash[c]) == 40
 
-				idt = identityb32[c]
-				print idt
-				idt += "=" * (4-len(idt)%4) # pad b64 string
-				ident = base64.standard_b64decode(idt)
-				identity = binascii.hexlify(ident)
-				# assert len(identity) == 40
-				print identity
+				identity = binascii.unhexlify(identityhash[c])
+				identity = base64.standard_b64encode(identity)
+				identity = identity.replace("=", "")
+				assert len(identity) == 27
 
 				flags[c] = str(flags[c]).replace("'", "")
-				# identity[c] = str(identity[c]).replace("'", "")
 
-				sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, identityhash, nick, version, flags, identity, digest, pubtime)
-				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + version[c] + format + flags[c] + format + identity + format + digest[c] + format + pubtime[c] + """')"""
+				sql = """INSERT INTO """ + onion_Add +"""(consensus, identityb32, pubdate, dirport, ip, orport, fingerprint, nick, identity, version, flags, digest, pubtime)
+				         VALUES ('""" +consensus_file_name + format + identityb32[c] + format + pubdate[c] + format + dirport[c] + format + ip[c] + format + orport[c] + format + identityhash[c] + format + nick[c] + format + identity + nick[c] + format + version[c] + format + flags[c] + format +  digest[c] + format + pubtime[c] + """')"""
 
 				try:
 				   cursor.execute(sql)
